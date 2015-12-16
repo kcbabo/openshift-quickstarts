@@ -4,11 +4,20 @@ query "get greeting"()
     greeting : Greeting()
 end
 
-rule "greet person"
+rule "greet master"
     when
-        person : Person()
+        person : Person( name == "rettori")
     then
-        String salutation = "Hello " + person.getName() + "!";
+        String salutation = "Hello " + person.getName() + "! At you service my master.";
         System.out.println("********** HelloRules DRL: " + salutation + " **********");
         insert(new Greeting(salutation));
 end
+rule "greet strangers"
+    when
+        person : Person( name != "rettori")
+    then
+        String salutation = "Get out of my way " + person.getName();
+        System.out.println("********** HelloRules DRL: " + salutation + " **********");
+        insert(new Greeting(salutation));
+end
+
