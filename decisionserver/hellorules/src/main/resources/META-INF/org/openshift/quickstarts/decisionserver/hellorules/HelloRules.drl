@@ -22,7 +22,7 @@ rule "greet strangers"
 end
 rule "greet Prakash"
     when
-        person : Person( name == "Prakash")
+        person : Person( name == "Keith")
     then
         String salutation = "Hello buddy!";
         System.out.println("********** HelloRules DRL: " + salutation + " **********");
