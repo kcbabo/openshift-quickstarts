@@ -20,7 +20,7 @@ rule "greet strangers"
         System.out.println("********** HelloRules DRL: " + salutation + " **********");
         insert(new Greeting(salutation));
 end
-rule "greet Prakash"
+rule "greet Keith"
     when
         person : Person( name == "Keith")
     then
